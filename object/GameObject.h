@@ -4,12 +4,14 @@
 #define PLATFORMERGAME_GAMEOBJECT_H
 #include <iostream>
 #include <SFML/Graphics.hpp>
-namespace object {
-class GameObject{
-public:
-    GameObject() = default;
+#include "PhysicsObject.h"
 
-    ~GameObject() = default;
+namespace object {
+class GameObject : public PhysicsObject{
+public:
+    GameObject();
+
+    virtual ~GameObject();
 
     //Functions
 

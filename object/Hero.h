@@ -11,11 +11,9 @@ namespace object {
     class Hero : public GameObject  {
 
     public:
-        Hero() {
-            loadSprite("C:/Users/Banana/CLionProjects/PlatformerGame/asset/PNG/Knight/Idle/idle1.png");
-        }
+        Hero();
 
-        ~Hero() = default;
+        ~Hero();
 
         //Functions
 

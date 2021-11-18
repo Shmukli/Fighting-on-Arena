@@ -22,5 +22,5 @@ find_package(Eigen 3.3.9 QUIET)
 
 
 
-add_executable(PlatformerGame main.cpp Engine/GameEngine.h Engine/GameEngine.cpp object/Hero.h object/Hero.cpp object/Enemy.h object/Enemy.cpp object/GameObject.h object/GameObject.cpp)
+add_executable(PlatformerGame main.cpp Engine/GameEngine.h Engine/GameEngine.cpp object/Hero.h object/Hero.cpp object/Enemy.h object/Enemy.cpp object/GameObject.h object/GameObject.cpp object/PhysicsObject.h object/PhysicsObject.cpp visual/Menu.h visual/Menu.cpp event/eventController.h event/eventController.cpp)
 target_link_libraries(PlatformerGame sfml-system sfml-window sfml-graphics tobanteGaming::Box2D)

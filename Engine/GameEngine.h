@@ -4,6 +4,7 @@
 #define PLATFORMERGAME_GAMEENGINE_H
 #include <SFML/Graphics.hpp>
 #include "../object/Hero.h"
+
 namespace engine {
     class GameEngine {
 
@@ -17,9 +18,9 @@ namespace engine {
     private:
 
 
-        //Functions
 
         //Variables
+        std::vector<object::GameObject> game_objects;
 
 
 

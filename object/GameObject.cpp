@@ -3,13 +3,15 @@
 //
 #include "GameObject.h"
 
-sf::Sprite object::GameObject::getSprite(){
+sf::Sprite object::GameObject::getSprite()
+{
 
     return this->sprite;
 
 }
 
-void object::GameObject::loadSprite(std::string filename){
+void object::GameObject::loadSprite(std::string filename)
+{
 
     if(!texture.loadFromFile(filename))
     {

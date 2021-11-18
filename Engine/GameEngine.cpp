@@ -1,16 +1,19 @@
 
 #include "GameEngine.h"
 
-void engine::GameEngine::drawObjects(){
+void engine::GameEngine::drawObjects()
+{
 
 
 
 }
-void engine::GameEngine::start(){
+void engine::GameEngine::start()
+{
 
 }
 
-void engine::GameEngine::initWindow(){
+void engine::GameEngine::initWindow()
+{
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "My window");
     while (window.isOpen())
