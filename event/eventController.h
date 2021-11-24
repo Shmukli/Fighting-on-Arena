@@ -8,8 +8,17 @@ class eventController{
 public:
     eventController();
     ~eventController();
+
+
+    //Functions
+
+    void updateMousePosition(sf::RenderWindow* window);
+
 private:
+    sf::Event event;
     std::vector<sf::Event> event_vector;
+    sf::Vector2f mousePosView;
+    sf::Vector2i mousePosWindow;
 
 
 };

@@ -9,9 +9,9 @@
 namespace object {
 class GameObject : public PhysicsObject{
 public:
-    GameObject();
+    GameObject() = default;
 
-    virtual ~GameObject();
+    virtual ~GameObject() {};
 
     //Functions
 

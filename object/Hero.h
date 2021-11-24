@@ -13,7 +13,7 @@ namespace object {
     public:
         Hero();
 
-        ~Hero();
+      ~Hero() {};
 
         //Functions
 

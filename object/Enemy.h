@@ -4,12 +4,13 @@
 
 #ifndef PLATFORMERGAME_ENEMY_H
 #define PLATFORMERGAME_ENEMY_H
+#include "GameObject.h"
 namespace object{
-class Enemy : GameObject{
+class Enemy : public GameObject{
 public:
     Enemy() = default;
 
-    ~Enemy() = default;
+     ~Enemy() { };
 
 
     //Functions

@@ -6,7 +6,14 @@
 
 int main() {
     engine::GameEngine engine;
-    engine.initWindow();
+    while(engine.isGameRunning())
+    {
+
+        // update
+
+        // render
+
+    }
     b2Vec2 gravity(0.0f, -10.0f);
     b2World world(gravity);
     b2BodyDef groundBodyDef;

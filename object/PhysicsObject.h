@@ -6,12 +6,11 @@
 
 namespace object {
     class PhysicsObject {
-
-        PhysicsObject();
-
-        virtual ~PhysicsObject();
-
     public:
+
+        PhysicsObject() = default;
+
+        virtual ~PhysicsObject() {};
 
         //Functions
 
