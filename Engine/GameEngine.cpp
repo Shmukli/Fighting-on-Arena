@@ -2,14 +2,32 @@
 #include "GameEngine.h"
 
 void engine::GameEngine::initVaribles(){
+     this->window = nullptr;
 
+
+
+}
+void engine::GameEngine::render(){
+
+
+
+}
+
+void engine::GameEngine::renderEnemies(){
+
+
+
+}
+
+void engine::GameEngine::renderHero(){
 
 
 
 }
 void engine::GameEngine::update(){
 
-
+    spawnHero(this->hero);
+    drawHero(this->hero);
 
 
 
@@ -17,8 +35,7 @@ void engine::GameEngine::update(){
 engine::GameEngine::GameEngine(){
 
     initWindow();
-    spawnHero(this->hero);
-    drawHero(this->hero);
+
 
 
 

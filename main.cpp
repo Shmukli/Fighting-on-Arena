@@ -10,7 +10,7 @@ int main() {
     {
 
         // update
-
+     engine.update();
         // render
 
     }
