@@ -6,10 +6,13 @@ void engine::GameEngine::initVaribles(){
 
 
 
+
 }
 void engine::GameEngine::render(){
 
-
+    this->window->clear();
+    renderHero();
+    this->window->display();
 
 }
 
@@ -21,13 +24,13 @@ void engine::GameEngine::renderEnemies(){
 
 void engine::GameEngine::renderHero(){
 
-
+    spawnHero();
+    drawHero();
 
 }
 void engine::GameEngine::update(){
 
-    spawnHero(this->hero);
-    drawHero(this->hero);
+
 
 
 
@@ -58,12 +61,12 @@ const bool engine::GameEngine::isGameRunning()
 return this->window->isOpen();
 
 }
-void engine::GameEngine::drawHero(object::Hero hero){
+void engine::GameEngine::drawHero(){
 
     this->window->draw(this->hero.getSprite());
 
 }
-void engine::GameEngine::spawnHero(object::Hero hero)
+void engine::GameEngine::spawnHero()
 {
 
  hero.getSprite().setPosition(sf::Vector2f(0,0));
@@ -71,7 +74,7 @@ void engine::GameEngine::spawnHero(object::Hero hero)
 }
 
 
-void engine::GameEngine::drawEnemies(object::Enemy enemy)
+void engine::GameEngine::drawEnemies()
 {
 
 this->game_enemies.push_back(enemy);

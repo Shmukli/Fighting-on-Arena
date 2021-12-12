@@ -18,12 +18,12 @@ namespace engine {
         void initVaribles();
         void start();
         void initWindow();
-        void drawEnemies(object::Enemy enemy);
-        void spawnHero(object::Hero hero);
-        void drawHero(object::Hero hero);
-        void spawnEnemy(object::Enemy enemy);
-        void drawEnemy(object::Enemy enemy);
-        void updateEnemies(object::Enemy enemy);
+        void drawEnemies();
+        void spawnHero();
+        void drawHero();
+        void spawnEnemy();
+        void drawEnemy();
+        void updateEnemies();
         void update();
         void render();
         void renderHero();
@@ -40,6 +40,8 @@ namespace engine {
         sf::VideoMode videoMode;
         std::vector<object::Enemy> game_enemies;
         object::Hero hero;
+        object::Enemy enemy;
+
 
 
 

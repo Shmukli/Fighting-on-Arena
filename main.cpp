@@ -6,11 +6,12 @@
 
 int main() {
     engine::GameEngine engine;
+    engine.render();
     while(engine.isGameRunning())
     {
 
         // update
-     engine.update();
+        std::cout << "1";
         // render
 
     }
