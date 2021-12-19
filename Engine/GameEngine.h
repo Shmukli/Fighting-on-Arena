@@ -18,7 +18,7 @@ namespace engine {
         void initVaribles();
         void start();
         void initWindow();
-        void drawEnemies();
+        void drawEnemies(sf::RenderTarget& target);
         void spawnHero();
         void drawHero();
         void spawnEnemy();
@@ -36,6 +36,7 @@ namespace engine {
 
 
         //Variables
+
         sf::RenderWindow* window;
         sf::VideoMode videoMode;
         std::vector<object::Enemy> game_enemies;

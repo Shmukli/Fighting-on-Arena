@@ -74,11 +74,16 @@ void engine::GameEngine::spawnHero()
 }
 
 
-void engine::GameEngine::drawEnemies()
+void engine::GameEngine::drawEnemies(sf::RenderTarget &target)
 {
+     int i = 0;
+    for(auto &enemy : this->game_enemies)
+    {
 
-this->game_enemies.push_back(enemy);
+        target.draw(game_enemies[i].getSprite());
+        ++i;
 
+    }
 }
 void engine::GameEngine::start()
 {
