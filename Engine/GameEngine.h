@@ -28,8 +28,12 @@ namespace engine {
         void render();
         void renderHero();
         void renderEnemies();
+        void calculateScaleOfWindow();
+        void setBackGroundScale();
         sf::RenderWindow* getWindow();
         const bool isGameRunning();
+        void loadBackGround(std::string filename);
+        void setGameField();
 
     private:
 
@@ -37,9 +41,15 @@ namespace engine {
 
         //Variables
 
+        sf::Texture background_texture;
+        sf::Sprite  background_sprite;
+
+        sf::Vector2u sizeOfWindow;
+        sf::Vector2f scale;
+
         sf::RenderWindow* window;
         sf::VideoMode videoMode;
-        std::vector<object::Enemy> game_enemies;
+        std::vector<object::Enemy>* game_enemies;
         object::Hero hero;
         object::Enemy enemy;
 

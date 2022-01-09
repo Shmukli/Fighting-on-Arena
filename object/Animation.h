@@ -1,0 +1,8 @@
+//
+// Created by Banana on 08.01.2022.
+//
+
+#ifndef PLATFORMERGAME_ANIMATION_H
+#define PLATFORMERGAME_ANIMATION_H
+
+#endif //PLATFORMERGAME_ANIMATION_H

@@ -18,6 +18,10 @@ namespace object {
         //Functions
 
 
+       //void attack() override;
+       //void moveRight();
+       //void moveLeft();
+
 
 
 

@@ -5,7 +5,7 @@
 
 
 
-sf::Sprite object::GameObject::getSprite()
+sf::Sprite& object::GameObject::getSprite()
 {
 
     return this->sprite;

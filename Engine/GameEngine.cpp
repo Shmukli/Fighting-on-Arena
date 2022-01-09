@@ -8,9 +8,22 @@ void engine::GameEngine::initVaribles(){
 
 
 }
+void engine::GameEngine::setBackGroundScale(){
+
+    this->background_sprite.setScale(this->scale.x, this->scale.y);
+
+}
+void engine::GameEngine::calculateScaleOfWindow() {
+
+    this->sizeOfWindow = this->window->getSize();
+    this->scale.x = ((static_cast<float>(sizeOfWindow.x) / 2048));
+    this->scale.y = ((static_cast<float>(sizeOfWindow.y) / 604));
+
+}
 void engine::GameEngine::render(){
 
     this->window->clear();
+    setGameField();
     renderHero();
     this->window->display();
 
@@ -35,7 +48,29 @@ void engine::GameEngine::update(){
 
 
 }
+
+void engine::GameEngine::loadBackGround(std::string filename){
+
+if(!(this->background_texture.loadFromFile(filename)));
+    {
+        std::cout << "Oops, something went wrong!";
+    }
+    this->background_sprite.setTexture(this->background_texture);
+
+
+
+}
+
+void engine::GameEngine::setGameField(){
+
+    loadBackGround("../asset/PNG/background/Magic-Cliffs-Environment/PREVIEWS/magic-cliffs-preview-detail.png");
+    setBackGroundScale();
+    this->window->draw(this->background_sprite);
+
+}
+
 engine::GameEngine::GameEngine(){
+
 
     initWindow();
 
@@ -46,7 +81,7 @@ engine::GameEngine::GameEngine(){
 }
 sf::RenderWindow* engine::GameEngine::getWindow(){
 
-    return window;
+    return this->window;
 
 }
 engine::GameEngine::~GameEngine(){
@@ -69,7 +104,7 @@ void engine::GameEngine::drawHero(){
 void engine::GameEngine::spawnHero()
 {
 
- hero.getSprite().setPosition(sf::Vector2f(0,0));
+ hero.getSprite().setPosition(sf::Vector2f(0,250*scale.y));
 
 }
 
@@ -77,10 +112,10 @@ void engine::GameEngine::spawnHero()
 void engine::GameEngine::drawEnemies(sf::RenderTarget &target)
 {
      int i = 0;
-    for(auto &enemy : this->game_enemies)
+    for(auto &enemy : *this->game_enemies)
     {
 
-        target.draw(game_enemies[i].getSprite());
+        target.draw(game_enemies->at(i).getSprite());
         ++i;
 
     }
@@ -93,11 +128,13 @@ void engine::GameEngine::start()
 void engine::GameEngine::initWindow()
 {
 
-    this->videoMode.height = 600;
-    this->videoMode.width = 800;
+    this->videoMode.height = 1080;
+    this->videoMode.width = 1920;
     this->window = new sf::RenderWindow(this->videoMode, "PlatformerGame", sf::Style::Titlebar | sf::Style::Close);
 
     this->window->setFramerateLimit(60);
+
+    calculateScaleOfWindow();
 
 }
 

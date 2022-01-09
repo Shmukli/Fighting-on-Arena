@@ -7,3 +7,21 @@ object::Hero::Hero()
 
 }
 
+/*void object::Hero::attack(){
+
+
+}
+
+void object::Hero::moveRight(){
+
+    //TODO move and animation of move;
+
+}
+
+
+
+void object::Hero::moveLeft(){
+
+    //TODO move and animation of move;
+
+}*/

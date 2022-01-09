@@ -3,6 +3,7 @@
 #ifndef PLATFORMERGAME_PHYSICSOBJECT_H
 #define PLATFORMERGAME_PHYSICSOBJECT_H
 #include <Box2D/Box2D.h>
+#include <SFML/Graphics.hpp>
 
 namespace object {
     class PhysicsObject {
@@ -15,10 +16,16 @@ namespace object {
         //Functions
 
 
+       void initObject(b2World* world);
+
+
 
     private:
 
         //Variables
+
+     b2BodyDef BodyDef;
+        b2Body* body;
 
 
 

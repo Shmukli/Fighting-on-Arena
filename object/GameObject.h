@@ -15,8 +15,11 @@ public:
 
     //Functions
 
-    sf::Sprite getSprite();
+    sf::Sprite& getSprite();
     void loadSprite(std::string filename);
+    //virtual void attack() const = 0;
+    //virtual void moveRight() const = 0;
+    //virtual void moveLeft() const = 0;
 
 
 private:
