@@ -15,6 +15,9 @@ public:
 
     //Functions
 
+    void moveRight();
+    void moveLeft();
+
     sf::Sprite& getSprite();
     void loadSprite(std::string filename);
     //virtual void attack() const = 0;
@@ -22,7 +25,8 @@ public:
     //virtual void moveLeft() const = 0;
 
 
-private:
+
+protected:
 
     //variables
     sf::Sprite sprite;

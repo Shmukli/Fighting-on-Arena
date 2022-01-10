@@ -1,9 +1,13 @@
 #include "eventController.h"
 
 
-eventController::eventController(){
 
 
+
+void eventController::ifWindowIsClosedEvent(sf::RenderWindow *window){
+
+    if(this->event.type == sf::Event::Closed)
+        window->close();
 
 }
 
@@ -11,11 +15,12 @@ void eventController::handleEvent(object::GameObject& game_object){
 
  if(this->event.type == sf::Event::KeyPressed)
  {
-     if(this->event.key.code == sf::Keyboard::D)
-         // TODO game_object.moveRight();
+     if(sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+            game_object.moveRight();
 
-         if(this->event.key.code == sf::Keyboard::A)
-             //TODO game_object.moveLeft();
+
+     if(sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+            game_object.moveLeft();
  ;}
 
 
@@ -23,7 +28,7 @@ void eventController::handleEvent(object::GameObject& game_object){
 
 void eventController::setEvent(sf::Event &temp_event){
 
-    this->event = temp_event;
+    this->event.type = temp_event.type;
 
 }
 

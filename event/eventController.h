@@ -5,6 +5,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "../object/GameObject.h"
+#include "../object/Animation.h"
 class eventController{
 public:
     eventController();
@@ -13,9 +14,11 @@ public:
 
     //Functions
 
+    void ifWindowIsClosedEvent(sf::RenderWindow* window);
     void updateMousePosition(sf::RenderWindow* window);
     void setEvent(sf::Event& temp_event);
     void handleEvent(object::GameObject& game_object);
+
 
 private:
     sf::Event event;

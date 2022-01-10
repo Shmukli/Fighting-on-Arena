@@ -18,16 +18,24 @@ namespace engine {
         void initVaribles();
         void start();
         void initWindow();
+
         void drawEnemies(sf::RenderTarget& target);
-        void spawnHero();
-        void drawHero();
         void spawnEnemy();
         void drawEnemy();
         void updateEnemies();
+        void renderEnemies();
+
+
+        object::Hero& getHero();
+        void spawnHero();
+        void drawHero();
+        void renderHero();
+
         void update();
         void render();
-        void renderHero();
-        void renderEnemies();
+
+
+        eventController& getEventController();
         void calculateScaleOfWindow();
         void setBackGroundScale();
         sf::RenderWindow* getWindow();
@@ -40,6 +48,8 @@ namespace engine {
 
 
         //Variables
+
+        eventController* event_controller;
 
         sf::Texture background_texture;
         sf::Sprite  background_sprite;

@@ -2,12 +2,20 @@
 #include "GameEngine.h"
 
 void engine::GameEngine::initVaribles(){
-     this->window = nullptr;
+    spawnHero();
+    loadBackGround("../asset/PNG/background/Magic-Cliffs-Environment/PREVIEWS/magic-cliffs-preview-detail.png");
 
 
 
 
 }
+
+eventController& engine::GameEngine::getEventController(){
+
+    return *this->event_controller;
+
+}
+
 void engine::GameEngine::setBackGroundScale(){
 
     this->background_sprite.setScale(this->scale.x, this->scale.y);
@@ -18,8 +26,17 @@ void engine::GameEngine::calculateScaleOfWindow() {
     this->sizeOfWindow = this->window->getSize();
     this->scale.x = ((static_cast<float>(sizeOfWindow.x) / 2048));
     this->scale.y = ((static_cast<float>(sizeOfWindow.y) / 604));
+}
+
+object::Hero& engine::GameEngine::getHero(){
+
+    return this->hero;
 
 }
+
+
+
+
 void engine::GameEngine::render(){
 
     this->window->clear();
@@ -37,7 +54,6 @@ void engine::GameEngine::renderEnemies(){
 
 void engine::GameEngine::renderHero(){
 
-    spawnHero();
     drawHero();
 
 }
@@ -63,7 +79,7 @@ if(!(this->background_texture.loadFromFile(filename)));
 
 void engine::GameEngine::setGameField(){
 
-    loadBackGround("../asset/PNG/background/Magic-Cliffs-Environment/PREVIEWS/magic-cliffs-preview-detail.png");
+
     setBackGroundScale();
     this->window->draw(this->background_sprite);
 
@@ -73,6 +89,7 @@ engine::GameEngine::GameEngine(){
 
 
     initWindow();
+    initVaribles();
 
 
 
@@ -104,7 +121,8 @@ void engine::GameEngine::drawHero(){
 void engine::GameEngine::spawnHero()
 {
 
- hero.getSprite().setPosition(sf::Vector2f(0,250*scale.y));
+ this->hero.getSprite().setPosition(this->hero.getSprite().getPosition().x * this->scale.x,
+                                    this->hero.getSprite().getPosition().y + 250 * this->scale.y);
 
 }
 
