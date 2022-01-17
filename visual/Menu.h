@@ -32,6 +32,7 @@ public:
 private:
 
     sf::Texture helpScreen;
+
     int selectedItemIndex;
     sf::Font font;
     sf::Text menu[MAX_NUMBER_OF_ITEMS];

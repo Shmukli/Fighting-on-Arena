@@ -87,6 +87,7 @@ int main() {
                 while (engine.getWindow()->pollEvent(event_new)) {
 
                     engine.getEventController().shutdownGame(engine.getWindow());
+                    engine.getEventController().helpOnF1();
                     engine.getEventController().setEvent(event_new);
                     engine.getEventController().ifWindowIsClosedEvent(engine.getWindow());
                     engine.getEventController().setSizeOfWindow(engine.getWindow());

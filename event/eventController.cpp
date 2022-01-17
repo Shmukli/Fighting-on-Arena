@@ -174,4 +174,36 @@ void eventController::setSizeOfWindow(sf::RenderWindow *window) {
 
 }
 
+void eventController::helpOnF1() {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::F1)) {
+        sf::VideoMode videoMode1;
+        videoMode1.height = 512;
+        videoMode1.width = 768;
+
+        sf::RenderWindow menuHelpWindow(videoMode1, "Help", sf::Style::Titlebar | sf::Style::Close);
+        while (menuHelpWindow.isOpen()) {
+            sf::Event event_temp;
+            while (menuHelpWindow.pollEvent(event_temp)) {
+                if (event_temp.type == sf::Event::KeyPressed) {
+                    if (event_temp.key.code == sf::Keyboard::Escape);
+                    menuHelpWindow.close();
+                    if (event_temp.type == sf::Event::Closed)
+                        menuHelpWindow.close();
+                }
+            }
+
+            sf::Texture helpScreen;
+            helpScreen.loadFromFile("../asset/help_screen.png");
+            sf::Sprite helpScreenToDraw;
+            helpScreenToDraw.setTexture(helpScreen);
+            menuHelpWindow.clear(sf::Color::Black);
+            menuHelpWindow.draw(helpScreenToDraw);
+            menuHelpWindow.display();
+
+
+        }
+    }
+
+}
+
 

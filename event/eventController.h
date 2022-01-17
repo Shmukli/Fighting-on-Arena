@@ -17,6 +17,7 @@ public:
 
     //Functions
 
+    void helpOnF1();
     void shutdownGame(sf::RenderWindow* window);
     void ifWindowIsClosedEvent(sf::RenderWindow* window);
     void updateMousePosition(sf::RenderWindow* window);
