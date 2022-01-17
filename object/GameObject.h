@@ -5,21 +5,24 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "PhysicsObject.h"
+#include "Animation.h"
+
 
 namespace object {
-class GameObject : public PhysicsObject{
+class GameObject{
 public:
-    GameObject() = default;
+    GameObject();
 
     virtual ~GameObject() {};
 
     //Functions
 
-    void moveRight();
-    void moveLeft();
+
+
+
 
     sf::Sprite& getSprite();
-    void loadSprite(std::string filename);
+   // void loadSprite(std::string filename);
     //virtual void attack() const = 0;
     //virtual void moveRight() const = 0;
     //virtual void moveLeft() const = 0;
@@ -30,7 +33,7 @@ protected:
 
     //variables
     sf::Sprite sprite;
-    sf::Texture texture;
+    sf::Texture* texture;
 
 
 

@@ -4,9 +4,9 @@
 #define PLATFORMERGAME_PHYSICSOBJECT_H
 #include <Box2D/Box2D.h>
 #include <SFML/Graphics.hpp>
-
+#include "Animation.h"
 namespace object {
-    class PhysicsObject {
+    class PhysicsObject{
     public:
 
         PhysicsObject() = default;

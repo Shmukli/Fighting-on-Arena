@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.17)
 project(PlatformerGame)
 
+set(CMAKE_EXE_LINKER_FLAGS -static)
 
 add_subdirectory(3rd_party/Box2D-cmake)
 set(CMAKE_CXX_STANDARD 20)
@@ -22,5 +23,5 @@ find_package(Eigen 3.3.9 QUIET)
 
 
 
-add_executable(PlatformerGame main.cpp Engine/GameEngine.h Engine/GameEngine.cpp object/Hero.h object/Hero.cpp object/Enemy.h object/Enemy.cpp object/GameObject.h object/GameObject.cpp object/PhysicsObject.h object/PhysicsObject.cpp visual/Menu.h visual/Menu.cpp event/eventController.h event/eventController.cpp Engine/settings.h Engine/settings.cpp scene/scene.h scene/scene.cpp object/Animation.h object/Animation.cpp level/GameLevel.h level/GameLevel.cpp)
+add_executable(PlatformerGame main.cpp Engine/GameEngine.h Engine/GameEngine.cpp object/Hero.h object/Hero.cpp object/Enemy.h object/Enemy.cpp object/GameObject.h object/GameObject.cpp object/PhysicsObject.h object/PhysicsObject.cpp visual/Menu.h visual/Menu.cpp event/eventController.h event/eventController.cpp Engine/settings.h Engine/settings.cpp scene/scene.h scene/scene.cpp object/Animation.h object/Animation.cpp level/GameLevel.h level/GameLevel.cpp physics/Collision.h physics/Collision.cpp)
 target_link_libraries(PlatformerGame sfml-system sfml-window sfml-graphics tobanteGaming::Box2D)

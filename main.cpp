@@ -1,42 +1,118 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../PlatformerGame/Engine/GameEngine.h"
+#include "visual/Menu.h"
 
 
 
 int main() {
-    engine::GameEngine engine;
+    int health_coefficient = 1;
+    bool selected;
+    sf::VideoMode videoMode1;
+    videoMode1.height = 1000;
+    videoMode1.width = 800;
 
-    while(engine.isGameRunning()) {
+    sf::RenderWindow menuWindow(videoMode1, "Menu", sf::Style::Titlebar | sf::Style::Close);
+    Menu menu(menuWindow.getSize().x, menuWindow.getSize().y, 1);
+
+    while (menuWindow.isOpen()) {
         sf::Event event;
 
+        while (menuWindow.pollEvent(event)) {
+            switch (event.type) {
+                case sf::Event::KeyReleased:
+                    switch (event.key.code) {
+                        case sf::Keyboard::Up:
+                            menu.MoveUp();
+                            break;
+
+                        case sf::Keyboard::Down:
+                            menu.MoveDown();
+                            break;
+
+                        case sf::Keyboard::Return:
+                            switch (menu.GetPressedItem()) {
+                                case 0:
+                                    selected = true;
+                                    menuWindow.close();
+                                    break;
+                                case 1:
+                                    health_coefficient += 1;
+
+                                    break;
+                                case 2:
+                                    menu.showHistory();
+                                    break;
+
+                                case 3:
+                                    menu.showHelp();
+                                    break;
+
+                                case 4:
+                                    menuWindow.close();
+                                    break;
+                            }
+
+                            break;
+                    }
+
+                    break;
+                case sf::Event::Closed:
+                    menuWindow.close();
+
+                    break;
+
+            }
+        }
 
 
-        while (engine.getWindow()->pollEvent(event)) {
+        menuWindow.clear(sf::Color::Black);
+        menu.draw(menuWindow);
+        menuWindow.display();
+    }
+    while(selected) {
 
-            engine.getEventController().setEvent(event);
-            engine.getEventController().ifWindowIsClosedEvent(engine.getWindow());
-            engine.getEventController().handleEvent(engine.getHero());
+        engine::GameEngine engine;
+        engine.getHero().setHealthCoefficient(health_coefficient);
+        engine.getEnemy().setHealthCoefficient(health_coefficient);
 
 
+            while (engine.isGameRunning() && !(engine.gameOver())) {
+                selected = false;
+                engine.setDeltaTime(engine.getClock());
 
-            // updatE
-            // render
+                sf::Event event_new;
+
+
+                while (engine.getWindow()->pollEvent(event_new)) {
+
+                    engine.getEventController().shutdownGame(engine.getWindow());
+                    engine.getEventController().setEvent(event_new);
+                    engine.getEventController().ifWindowIsClosedEvent(engine.getWindow());
+                    engine.getEventController().setSizeOfWindow(engine.getWindow());
+                    engine.getEventController().handleEventHero(engine.getHero(), engine.getEnemy(), engine.getDeltaTime(),
+                                                                engine.getCollisionResult());
+                    engine.getEventController().handleEventEnemy(engine.getEnemy(), engine.getHero(), engine.getDeltaTime(),
+                                                                 engine.getCollisionResult());
+
+
+                }
+                engine.setCollisionResult(engine.getCollision().resolveObjectCollision(engine.getHero(), engine.getEnemy()));
+                engine.getWindow()->clear();
+                engine.update();
+                engine.render();
+                engine.getWindow()->display();
+            }
+
 
         }
-        engine.render();
-    }
 
-    /*b2Vec2 gravity(0.0f, -10.0f);
-    b2World world(gravity);
-    b2BodyDef groundBodyDef;
-    groundBodyDef.position.Set(0.0f, -10.f);
-    b2Body* groundBody = world.CreateBody(&groundBodyDef);
-    b2PolygonShape groundBox;
-    groundBox.SetAsBox(50.0f, 10.0f);
-    groundBody->CreateFixture(&groundBox, 0.0f);
-*/
 
+       /* sf::VideoMode videoMode2;
+        videoMode2.height = 1000;
+        videoMode2.width = 800;
+
+        sf::RenderWindow whoWinWindow(videoMode2, "Menu", sf::Style::Titlebar | sf::Style::Close); */
 
 
     return 0;

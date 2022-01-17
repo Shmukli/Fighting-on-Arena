@@ -12,9 +12,17 @@ public:
 
     //Functions
 
+    //Physics
     void setWorld();
     void setGroundBody();
     void createGroundFixture();
+
+
+    //Random generating
+    void random_object_generating();
+
+
+    //Objects
 
 
 private:
