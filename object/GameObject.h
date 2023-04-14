@@ -7,35 +7,26 @@
 #include "PhysicsObject.h"
 #include "Animation.h"
 
-
 namespace object {
-class GameObject{
-public:
-    GameObject();
+class GameObject {
+ public:
+  GameObject();
 
-    virtual ~GameObject() {};
+  virtual ~GameObject() {};
 
-    //Functions
-
-
+  //Functions
 
 
 
-    sf::Sprite& getSprite();
-   // void loadSprite(std::string filename);
-    //virtual void attack() const = 0;
-    //virtual void moveRight() const = 0;
-    //virtual void moveLeft() const = 0;
 
 
+  sf::Sprite &getSprite();
 
-protected:
+ protected:
 
-    //variables
-    sf::Sprite sprite;
-    sf::Texture* texture;
-
-
+  //variables
+  sf::Sprite sprite;
+  sf::Texture *texture;
 
 };
 }

@@ -6,33 +6,29 @@
 #define PLATFORMERGAME_GAMELEVEL_H
 #include "Box2D/Box2D.h"
 #include "../object/Hero.h"
-namespace level{
-class Game_level{
-public:
+namespace level {
+class Game_level {
+ public:
 
-    //Functions
+  //Functions
 
-    //Physics
-    void setWorld();
-    void setGroundBody();
-    void createGroundFixture();
+  //Physics
+  void setWorld();
+  void setGroundBody();
+  void createGroundFixture();
 
-
-    //Random generating
-    void random_object_generating();
-
-
-    //Objects
+  //Random generating
+  void random_object_generating();
 
 
-private:
-
-std::vector<b2Body*> bodies_m;
-
-b2World world_m;
+  //Objects
 
 
+ private:
 
+  std::vector<b2Body *> bodies_m;
+
+  b2World world_m;
 
 };
 #endif //PLATFORMERGAME_GAMELEVEL_H

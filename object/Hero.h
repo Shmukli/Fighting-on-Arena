@@ -20,7 +20,7 @@ namespace object {
 
         void setHealthCoefficient(int health_coefficient);
 
-       //void attack() override;
+
        void leftAttack(float deltaTime);
        void rightAttack(float deltaTime);
 

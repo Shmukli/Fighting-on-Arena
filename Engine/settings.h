@@ -2,10 +2,7 @@
 
 #ifndef PLATFORMERGAME_SETTINGS_H
 #define PLATFORMERGAME_SETTINGS_H
-class Settings{
-
-
-
+class Settings {
 
 };
 #endif //PLATFORMERGAME_SETTINGS_H

@@ -6,30 +6,26 @@
 #include <SFML/Graphics.hpp>
 #include "Animation.h"
 namespace object {
-    class PhysicsObject{
-    public:
+class PhysicsObject {
+ public:
 
-        PhysicsObject() = default;
+  PhysicsObject() = default;
 
-        virtual ~PhysicsObject() {};
+  virtual ~PhysicsObject() {};
 
-        //Functions
-
-
-       void initObject(b2World* world);
+  //Functions
 
 
+  void initObject(b2World *world);
 
-    private:
+ private:
 
-        //Variables
+  //Variables
 
-     b2BodyDef BodyDef;
-        b2Body* body;
+  b2BodyDef BodyDef;
+  b2Body *body;
 
-
-
-    };
+};
 
 }
 #endif //PLATFORMERGAME_PHYSICSOBJECT_H

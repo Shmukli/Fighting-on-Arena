@@ -4,17 +4,12 @@
 
 #ifndef PLATFORMERGAME_SCENE_H
 #define PLATFORMERGAME_SCENE_H
-class Scene{
-public:
-    Scene();
-    ~Scene();
+class Scene {
+ public:
+  Scene();
+  ~Scene();
 
-
-
-
-private:
-
-
+ private:
 
 };
 

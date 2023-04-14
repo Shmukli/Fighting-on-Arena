@@ -9,120 +9,112 @@
 #include "../physics/Collision.h"
 #include <fstream>
 #include <string>
-struct players_score{
-    bool firstPlayerWin;
-    bool secondPlayerWin;
+struct players_score {
+  bool firstPlayerWin;
+  bool secondPlayerWin;
 };
 
 namespace engine {
-    class GameEngine {
+class GameEngine {
 
-    public:
-        GameEngine();
-        ~GameEngine();
+ public:
+  GameEngine();
+  ~GameEngine();
 
-        //Functions
-        void initVaribles();
-        void start();
-        void initWindow();
+  //Functions
+  void initVaribles();
+  void start();
+  void initWindow();
 
-        unsigned int& getHeroHealth();
-        unsigned int& getEnemyHealth();
+  unsigned int &getHeroHealth();
+  unsigned int &getEnemyHealth();
 
-        void drawEnemies(sf::RenderTarget& target);
-        void spawnEnemy();
-        void drawEnemy();
-        void renderEnemy();
-        object::Enemy& getEnemy();
-        Collision getCollision();
-        bool getCollisionResult();
-        void setCollisionResult(bool collision_res);
+  void drawEnemies(sf::RenderTarget &target);
+  void spawnEnemy();
+  void drawEnemy();
+  void renderEnemy();
+  object::Enemy &getEnemy();
+  Collision getCollision();
+  bool getCollisionResult();
+  void setCollisionResult(bool collision_res);
 
-        sf::Clock* getClock();
-        float getDeltaTime();
-        void setDeltaTime(sf::Clock* clock);
+  sf::Clock *getClock();
+  float getDeltaTime();
+  void setDeltaTime(sf::Clock *clock);
 
-        void checkWhoWin();
-        bool gameOver();
+  void checkWhoWin();
+  bool gameOver();
 
-        void initHealthHero();
+  void initHealthHero();
 
-        void loadToFile();
+  void loadToFile();
 
+  void initEnemyHealth();
+  void updateEnemyHealth();
 
-        void initEnemyHealth();
-        void updateEnemyHealth();
+  void updateText();
 
-        void updateText();
+  void renderText(sf::RenderTarget &target);
 
-        void renderText(sf::RenderTarget& target);
+  object::Hero &getHero();
+  void spawnHero();
+  void drawHero();
+  void renderHero();
 
+  void updateHeroHealth();
 
-        object::Hero& getHero();
-        void spawnHero();
-        void drawHero();
-        void renderHero();
+  void update();
+  void render();
 
-        void updateHeroHealth();
+  eventController &getEventController();
+  void calculateScaleOfWindow();
+  void setBackGroundScale();
+  sf::RenderWindow *getWindow();
+  const bool isGameRunning();
+  void loadBackGround(std::string filename);
+  void setGameField();
 
+ private:
 
-        void update();
-        void render();
+  players_score playersScore;
 
+  std::ofstream myFile;
 
-        eventController& getEventController();
-        void calculateScaleOfWindow();
-        void setBackGroundScale();
-        sf::RenderWindow* getWindow();
-        const bool isGameRunning();
-        void loadBackGround(std::string filename);
-        void setGameField();
+  sf::Font healthHeroFont;
+  sf::Font healthEnemyFont;
 
-    private:
+  sf::Text heroHealth;
+  sf::Text heroHealthDecription;
+  std::string heroHealthString;
+  sf::Text enemyHealth;
+  sf::Text enemyHealthDecription;
+  std::string enemyHealthString;
+  //Variables
+  unsigned int actualHeroHealth;
+  unsigned int actualEnemyHealth;
 
-        players_score playersScore;
+  float deltaTime;
 
-        std::ofstream myFile;
+  Collision collision;
 
-        sf::Font healthHeroFont;
-        sf::Font healthEnemyFont;
+  bool gameOverResult;
 
+  bool collisionResult;
 
-        sf::Text heroHealth;
-        sf::Text heroHealthDecription;
-        std::string heroHealthString;
-        sf::Text enemyHealth;
-        sf::Text enemyHealthDecription;
-        std::string enemyHealthString;
-        //Variables
-        unsigned int actualHeroHealth;
-        unsigned int  actualEnemyHealth;
+  sf::Clock *clock;
+  eventController event_controller;
 
-        float deltaTime;
+  sf::Texture background_texture;
+  sf::Sprite background_sprite;
 
-        Collision collision;
+  sf::Vector2u sizeOfWindow;
+  sf::Vector2f scale;
 
-        bool gameOverResult;
+  sf::RenderWindow *window;
+  sf::VideoMode videoMode;
+  object::Hero hero;
+  object::Enemy enemy;
 
-        bool collisionResult;
-
-        sf::Clock* clock;
-        eventController event_controller;
-
-        sf::Texture background_texture;
-        sf::Sprite  background_sprite;
-
-        sf::Vector2u sizeOfWindow;
-        sf::Vector2f scale;
-
-        sf::RenderWindow* window;
-        sf::VideoMode videoMode;
-        object::Hero hero;
-        object::Enemy enemy;
-
-
-
-
-    };
+};
 }
 #endif //PLATFORMERGAME_GAMEENGINE_H
